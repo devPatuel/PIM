@@ -11,8 +11,10 @@
       
       
       
-        <link rel="prev" href="../Manifest/">
+        <link rel="prev" href="..">
       
+      
+        <link rel="next" href="../Manifest/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Scripts de Gradle - My Docs Jordi Patuel</title>
+        <title>Directorios finitos - My Docs Jordi Patuel</title>
       
     
     
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scripts-de-gradle" class="md-skip">
+        <a href="#directorios-finitos" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -105,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scripts de Gradle
+              Directorios finitos
             
           </span>
         </div>
@@ -189,9 +191,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../DirectoriosFinitos/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -227,11 +231,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../ScriptsGradle/" class="md-tabs__link">
         
   
   
@@ -310,10 +312,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../DirectoriosFinitos/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Directorios finitos
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -324,6 +348,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características principales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Características principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-estructura-en-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de estructura en código
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -354,32 +422,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Scripts de Gradle
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ScriptsGradle/" class="md-nav__link">
         
   
   
@@ -390,44 +436,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#script-de-compilacion-general" class="md-nav__link">
-    <span class="md-ellipsis">
-      Script de compilación general
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#script-de-modulo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Script de módulo
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -448,28 +456,23 @@
 
 
 
-<h1 id="scripts-de-gradle">Scripts de Gradle</h1>
-<p>Existen dos tipos de <em>scripts</em>:
-1. De compilación general.
-2. De módulo.</p>
-<h2 id="script-de-compilacion-general">Script de compilación general</h2>
-<p>Un proyecto <strong>Android</strong> define un script de configuración general <code>build.gradle.ktspara</code> el proyecto, ubicado en la carpeta raíz, y otro ubicado en la appcarpeta , que hace referencia al módulo de la aplicación en sí.</p>
-<p>El contenido del script de compilación general tendrá la siguiente estructura:</p>
-<pre><code>plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.compose) apply false
-}
+<h1 id="directorios-finitos">Directorios finitos</h1>
+<p>Un <strong>directorio finito</strong> es un conjunto de archivos y carpetas que tienen un límite definido en cuanto a tamaño, estructura o número de elementos. Este concepto se utiliza para estudiar cómo se organizan y gestionan los recursos en un sistema de archivos. A diferencia de los directorios infinitos, los finitos tienen una <em>capacidad limitada</em>.</p>
+<p>En la práctica, los directorios finitos son comunes porque todos los sistemas de almacenamiento poseen restricciones físicas o lógicas. Estas limitaciones pueden estar relacionadas con el espacio en disco, el número máximo de archivos que se pueden almacenar o las políticas de organización impuestas por el sistema operativo.</p>
+<p>El análisis de directorios finitos permite entender cómo optimizar el uso de recursos. También ayuda a prever problemas de rendimiento, fragmentación y organización de datos. Así, conocerlos es útil tanto para administradores de sistemas como para estudiantes de informática.</p>
+<h2 id="caracteristicas-principales">Características principales</h2>
+<ul>
+<li>Tienen un límite en el número de archivos.</li>
+<li>El espacio disponible depende del sistema de archivos.</li>
+<li>Suelen tener permisos asociados.</li>
+<li>Permiten organizar jerárquicamente los datos.</li>
+</ul>
+<h3 id="ejemplo-de-estructura-en-codigo">Ejemplo de estructura en código</h3>
+<pre><code>/home/usuario/
+/home/usuario/documentos/
+/home/usuario/imagenes/
 </code></pre>
-<h2 id="script-de-modulo">Script de módulo</h2>
-<p>El archivo de compilación más importante es el <code>build.gradle.ktsdel</code> propio módulo de la aplicación. Los bloques principales que lo componen son los siguientes:</p>
-<pre><code>plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-}
-</code></pre>
-<p><img alt="ImagenAndroid" src="/Ejercicio1/imgs/android.png" /></p>
+<p><img alt="Directorios" src="/Ejercicio1/imgs/Directorios.jpg" /></p>
 
 
 

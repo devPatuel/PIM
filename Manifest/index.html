@@ -11,8 +11,10 @@
       
       
       
-        <link rel="prev" href="../Manifest/">
+        <link rel="prev" href="../DirectoriosFinitos/">
       
+      
+        <link rel="next" href="../ScriptsGradle/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Scripts de Gradle - My Docs Jordi Patuel</title>
+        <title>Manifest - My Docs Jordi Patuel</title>
       
     
     
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scripts-de-gradle" class="md-skip">
+        <a href="#manifest" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -105,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scripts de Gradle
+              Manifest
             
           </span>
         </div>
@@ -208,9 +210,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../Manifest/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -227,11 +231,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../ScriptsGradle/" class="md-tabs__link">
         
   
   
@@ -332,28 +334,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../Manifest/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Manifest
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -366,20 +346,30 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
   
   
   <span class="md-ellipsis">
-    Scripts de Gradle
+    Manifest
     
   </span>
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      </a>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScriptsGradle/" class="md-nav__link">
         
   
   
@@ -390,44 +380,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#script-de-compilacion-general" class="md-nav__link">
-    <span class="md-ellipsis">
-      Script de compilación general
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#script-de-modulo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Script de módulo
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -448,28 +400,22 @@
 
 
 
-<h1 id="scripts-de-gradle">Scripts de Gradle</h1>
-<p>Existen dos tipos de <em>scripts</em>:
-1. De compilación general.
-2. De módulo.</p>
-<h2 id="script-de-compilacion-general">Script de compilación general</h2>
-<p>Un proyecto <strong>Android</strong> define un script de configuración general <code>build.gradle.ktspara</code> el proyecto, ubicado en la carpeta raíz, y otro ubicado en la appcarpeta , que hace referencia al módulo de la aplicación en sí.</p>
-<p>El contenido del script de compilación general tendrá la siguiente estructura:</p>
-<pre><code>plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.compose) apply false
-}
+<h1 id="manifest">Manifest</h1>
+<p>``` <?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"></p>
+<pre><code>&lt;application&gt; 
+    ...
+&lt;/application&gt;
 </code></pre>
-<h2 id="script-de-modulo">Script de módulo</h2>
-<p>El archivo de compilación más importante es el <code>build.gradle.ktsdel</code> propio módulo de la aplicación. Los bloques principales que lo componen son los siguientes:</p>
-<pre><code>plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-}
-</code></pre>
-<p><img alt="ImagenAndroid" src="/Ejercicio1/imgs/android.png" /></p>
+<p></manifest>
+```</p>
+<p>El elemento raíz manifestdefine dos espacios de nombres:</p>
+<ul>
+<li><code>xmlns:android</code>, con el que podemos definir atributos específicos de <em>Android</em> ( android:) en el documento, que sirven para definir el comportamiento de la aplicación y su interacción con el sistema. Además, nos permite definir información relacionada con los componentes (actividades, servicios, etc.).</li>
+<li><code>xmlns:toolsNos</code> permite utilizar ciertas herramientas de depuración y ayuda del IDE, pero no tiene ningún efecto en el funcionamiento de la aplicación.</li>
+</ul>
+<p><img alt="Manifest" src="/Ejercicio1/imgs/Manifest.png" /></p>
 
 
 
